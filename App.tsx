@@ -11,12 +11,16 @@ const Tab = createMaterialBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="#f0edf6"
+        inactiveColor="#3e2465"
+        barStyle={{ backgroundColor: "#694fad" }}
+      >
         <Tab.Screen
           name="All"
           component={All}
           options={{
-            tabBarLabel: "All",
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
@@ -32,7 +36,6 @@ export default function App() {
           name="Pending"
           component={Pending}
           options={{
-            tabBarLabel: "Pending",
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
@@ -48,7 +51,6 @@ export default function App() {
           name="Completed"
           component={Completed}
           options={{
-            tabBarLabel: "Completed",
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
