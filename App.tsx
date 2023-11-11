@@ -11,11 +11,7 @@ const Tab = createMaterialBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Home"
-        inactiveColor="#B1B3B8"
-        barStyle={{ marginBottom: 20 }}
-      >
+      <Tab.Navigator initialRouteName="Home" inactiveColor="#B1B3B8">
         <Tab.Screen
           name="All"
           component={All}

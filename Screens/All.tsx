@@ -1,13 +1,12 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, StatusBar } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
+import TodoList from "../Components/TodoList";
 
 const All = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Text 1</Text>
-      <Text style={styles.text}>Text 2</Text>
-      <Text style={styles.text}>Text 3</Text>
+      <TodoList />
     </SafeAreaView>
   );
 };
@@ -19,6 +18,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff",
     rowGap: 20,
+    paddingTop: StatusBar.currentHeight,
   },
   text: {
     fontSize: 20,
