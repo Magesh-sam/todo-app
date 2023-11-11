@@ -1,12 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 
 const Completed = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Completed</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>Task 2 Completed</Text>
+    </SafeAreaView>
   );
 };
 

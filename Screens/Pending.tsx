@@ -1,12 +1,13 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 
 const Pending = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Pending</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>Task 1 Pending</Text>
+      <Text style={styles.text}>Task 3 Pending</Text>
+    </SafeAreaView>
   );
 };
 
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+    rowGap: 20,
   },
   text: {
     fontSize: 20,

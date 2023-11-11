@@ -1,12 +1,14 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 
 const All = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>All</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>Text 1</Text>
+      <Text style={styles.text}>Text 2</Text>
+      <Text style={styles.text}>Text 3</Text>
+    </SafeAreaView>
   );
 };
 
@@ -16,6 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+    rowGap: 20,
   },
   text: {
     fontSize: 20,

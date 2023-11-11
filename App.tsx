@@ -13,19 +13,20 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Home"
-        activeColor="#f0edf6"
-        inactiveColor="#3e2465"
-        barStyle={{ backgroundColor: "#694fad" }}
+        inactiveColor="#B1B3B8"
+        barStyle={{ marginBottom: 20 }}
       >
         <Tab.Screen
           name="All"
           component={All}
           options={{
+            title: "All",
+
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
                   name="format-list-checks"
-                  size={32}
+                  size={26}
                   color="#00B0FF"
                 />
               );
@@ -36,11 +37,13 @@ export default function App() {
           name="Pending"
           component={Pending}
           options={{
+            title: "Pending",
+            tabBarColor: "#F2963F",
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
                   name="progress-check"
-                  size={32}
+                  size={26}
                   color="#F2963F"
                 />
               );
@@ -51,11 +54,13 @@ export default function App() {
           name="Completed"
           component={Completed}
           options={{
+            title: "Completed",
+            tabBarColor: "#00C853",
             tabBarIcon: () => {
               return (
                 <MaterialCommunityIcons
                   name="check"
-                  size={32}
+                  size={26}
                   color="#00C853"
                 />
               );
