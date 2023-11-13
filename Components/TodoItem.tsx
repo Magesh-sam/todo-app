@@ -27,10 +27,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 15,
     borderColor: "purple",
-    borderWidth: 1,
+    borderWidth: 2,
     marginHorizontal: 10,
     borderRadius: 15,
     paddingHorizontal: 10,
+    elevation: 5,
+    backgroundColor: "white",
   },
   text: {
     fontSize: 20,

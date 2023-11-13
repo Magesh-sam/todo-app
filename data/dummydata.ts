@@ -34,4 +34,29 @@ export const todos: todoItemProps[] = [
     title: "Todo 7",
     completed: false,
   },
+  {
+    id: 8,
+    title: "Todo 8",
+    completed: false,
+  },
+  {
+    id: 9,
+    title: "Todo 9",
+    completed: false,
+  },
+  {
+    id: 10,
+    title: "Todo 10",
+    completed: false,
+  },
+  {
+    id: 11,
+    title: "Todo 11",
+    completed: false,
+  },
+  {
+    id: 12,
+    title: "Todo 12",
+    completed: false,
+  },
 ];
