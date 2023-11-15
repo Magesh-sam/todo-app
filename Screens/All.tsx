@@ -5,13 +5,31 @@ import TodoList from "../Components/TodoList";
 import Dialog from "react-native-dialog";
 import { useState } from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../redux/store";
+import { addTodo } from "../redux/todoSlice";
+import { todoItemProps } from "../types/types";
 const All = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [taskName, setTaskName] = useState("");
+  const todos = useSelector((state: RootState) => state.todos);
+  console.log(todos);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleSubmit = () => {
+    const newTask: todoItemProps = {
+      id: Date.now(),
+      taskName,
+      completed: false,
+    };
+    dispatch(addTodo(newTask));
+    setTaskName("");
+    setOpenDialog(false);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <TodoList />
+      <TodoList todos={todos} />
       <View>
         <Dialog.Container visible={openDialog}>
           <Dialog.Title>Add Todo</Dialog.Title>
@@ -19,16 +37,11 @@ const All = () => {
           <Dialog.Input
             placeholder="walk the dog, buy groceries"
             onChange={(e) => setTaskName(e.nativeEvent.text)}
+            autoFocus
           />
 
           <Dialog.Button label="Cancel" onPress={() => setOpenDialog(false)} />
-          <Dialog.Button
-            label="Add"
-            onPress={() => {
-              console.log(`${taskName} added`);
-              setOpenDialog(false);
-            }}
-          />
+          <Dialog.Button label="Add" onPress={handleSubmit} />
         </Dialog.Container>
       </View>
 

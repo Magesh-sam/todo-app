@@ -1,9 +1,5 @@
-type todoItemProps = {
+export type todoItemProps = {
   id: number;
-  title: string;
+  taskName: string;
   completed: boolean;
 };
-
-interface TodoListProps {
-  items: todoItemProps[];
-}

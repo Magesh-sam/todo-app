@@ -1,11 +1,17 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 
+import TodoList from "../Components/TodoList";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+
 const Completed = () => {
+  const todos = useSelector((state: RootState) => state.todos);
+  const completedTodos = todos.filter((todo) => todo.completed);
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Task 2 Completed</Text>
+      <TodoList todos={completedTodos} />
     </SafeAreaView>
   );
 };
@@ -16,6 +22,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+    rowGap: 20,
+    paddingTop: StatusBar.currentHeight,
   },
   text: {
     fontSize: 20,

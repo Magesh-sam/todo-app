@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { todoItemProps } from "../types/types";
 
-interface todoItemProps {
-  id: number;
-  taskName: string;
-  completed: boolean;
-}
 
 const initialState = {
   todos: [] as todoItemProps[],
@@ -15,7 +11,9 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+      console.log("received payload", action.payload);
       state.todos.push(action.payload);
+      console.log("todos after push", state.todos);
     },
     deleteTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
