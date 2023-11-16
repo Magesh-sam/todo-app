@@ -13,10 +13,14 @@ const All = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [taskName, setTaskName] = useState("");
   const todos = useSelector((state: RootState) => state.todos);
-  console.log(todos);
   const dispatch = useDispatch<AppDispatch>();
+  const [isTaskEmpty, setIsTaskEmpty] = useState(false);
 
   const handleSubmit = () => {
+    if (taskName === "") {
+      setIsTaskEmpty(true);
+      return;
+    }
     const newTask: todoItemProps = {
       id: Date.now(),
       taskName,
@@ -25,6 +29,13 @@ const All = () => {
     dispatch(addTodo(newTask));
     setTaskName("");
     setOpenDialog(false);
+    setIsTaskEmpty(false);
+  };
+
+  const handleCancel = () => {
+    setTaskName("");
+    setOpenDialog(false);
+    setIsTaskEmpty(false);
   };
 
   return (
@@ -32,15 +43,17 @@ const All = () => {
       <TodoList todos={todos} />
       <View>
         <Dialog.Container visible={openDialog}>
-          <Dialog.Title>Add Todo</Dialog.Title>
-
+          <Dialog.Title style={{ color: "purple" }}>Add Todo</Dialog.Title>
           <Dialog.Input
             placeholder="walk the dog, buy groceries"
             onChange={(e) => setTaskName(e.nativeEvent.text)}
             autoFocus
+            style={{ color: "black" }}
           />
-
-          <Dialog.Button label="Cancel" onPress={() => setOpenDialog(false)} />
+          {isTaskEmpty && (
+            <Text style={{ color: "red" }}>please add task to continue</Text>
+          )}
+          <Dialog.Button label="Cancel" onPress={handleCancel} />
           <Dialog.Button label="Add" onPress={handleSubmit} />
         </Dialog.Container>
       </View>
